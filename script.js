@@ -1,5 +1,7 @@
 // Load data from local storage when the page loads
 document.addEventListener("DOMContentLoaded", function () {
+  const form = document.getElementById('hide');
+  form.style.display = 'none'
   // Retrieve the stored data from local storage
   const storedData = localStorage.getItem("formDataArray");
 
@@ -187,13 +189,19 @@ const btn = document.getElementById('btn');
 
 btn.addEventListener('click', () => {
   const form = document.getElementById('hide');
+  // form.style.display = 'block'
+  const forms = document.querySelector('.c12');
+  // forms.style.display = 'none';
 
   if (form.style.display === 'none') {
     // 👇️ this SHOWS the form
     form.style.display = 'block';
+    forms.style.display = 'none';
+
   } else {
     // 👇️ this HIDES the form
     form.style.display = 'none';
+    forms.style.display = 'block';
   }
 });
 
