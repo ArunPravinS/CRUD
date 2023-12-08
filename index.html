@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="header1">
+                <div class="find">
+                    <input type="text" id="findProduct" class="inputText" name="findproductname"
+                        placeholder="Search by Product name"></input>
+
+                    <button onclick="filter2()"><i class='fas fa-search' ></i></button>
+
+                </div>
+                <div class="filter">
+                    <p style="color: white;">Sort By Product Name</p>
+                    <div class="sort">
+                       <button onclick="ascSort()"> <i class='fas fa-angle-up'></i></button>
+                       <button onclick="decSort()"> <i class='fas fa-angle-down'></i></button>
+                    </div>
+                </div>
+                <div class="delete">
+                    <button class="deleteAl" id="deleteAll" onclick="deleteAllRows()">DELETE ALL</button>
+                </div>
+                <div class="totalproducts">
+                    <p>Total Products :</p>
+                    <p class="totalcount" id="totalcount" name="totalcount"></p>
+                </div>
+
+            </div>
+        </div>
+
+
+    </header>
+    <div class="c12">
+        <div class="container ">
+
+
+            <table class="list" id="storeList">
+                <thead>
+                    <tr>
+                        <th>S.NO</th>
+                        <th>Product Name</th>
+                        <th><div>
+                            <label for="category">category</label>
+                            <select onclick="fil()" style="background-color:#74c0fc;border: none;" id="category1" required>
+                                <option value="none">None</option>
+                                <option value="clothes">Clothes</option>
+                                <option value="electronics">Electronics</option>
+                                <option value="medical">Medical</option>
+
+                            </select></div></th>
+                        <th>Price</th>
+                        <th>Count</th>
+                        <th>Total</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="container jj">
+        <div id="hide">
+            <table class="hide1">
+                <tr>
+                    <td>
+                        <form id="form1" autocomplete="off" onsubmit="onFormSubmit()">
+                            <div>
+                                <label for="product">Product Name</label>
+                                <input type="text" name="product" id="product" required>
+                            </div>
+                            <div>
+                                <label for="category">category</label>
+                                <select id="category" required>
+                                    <option value="clothes">Clothes</option>
+                                    <option value="electronics">Electronics</option>
+                                    <option value="medical">Medical</option>
+
+                                </select>
+
+                            </div>
+                            <div>
+                                <label for="price">Price</label>
+                                <input type="text" name="price" id="price" required pattern="[1-9][0-9]{0,4}" title="price should only be in positive numbers">
+                            </div>
+
+                            <div>
+                                <label for="count">Count</label>
+                                <input type="number" name="count" id="count" required pattern="[1-9][0-9]{0,4}" title="price should only be in positive numbers">
+
+                            </div>
+                            <div class="form_action--button">
+                                <input type="submit" value="Submit" id="hide1">
+                                <input type="reset" value="Reset">
+                            </div>
+                        </form>
+                    </td>
+                </tr>
+            </table>
+
+            
+        </div>
+        <!-- Add a container for pagination controls -->
+<div class="pagination-container">
+    <button onclick="prevPage()"><i class='fas fa-angle-left'></i></button>
+    <span id="currentPage">1</span>
+    <button onclick="nextPage()"><i class='fas fa-angle-right'></i></button>
+</div>
+
+        <button id="btn"><i class="fas fa-plus"></i></button>
+    </div>
+
+
+
+
+
+
+
+
+
+
+</body>
+<script type="text/javascript" src="./script.js"></script>
+
+
+</html>

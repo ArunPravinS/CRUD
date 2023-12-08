@@ -1,0 +1,100 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+.header1{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 30px;
+    padding-bottom: 90px;
+}
+.find{
+    display: flex;
+    gap: 3px;
+    align-items: center;
+}
+.fa-search{
+    background-color: #198859;
+    padding: 5px;
+    border-radius: 2px;
+}
+.sort{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.filter{
+    display: flex;
+    align-items: center;
+    gap: 3px;
+}
+.deleteAl{
+    padding: 5px;
+    border-radius: 10px;
+
+}
+.container{
+    width: 1170px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.inputText{
+    padding: 5px;
+}
+header{
+    background-color: #2b2549;
+
+}
+.totalproducts p{
+    color: white;
+}
+table.list{
+    text-align: center;
+    width: 100%;
+}
+
+td{
+    border: 1px solid rgb(204,200,200);
+    text-align: left;
+    padding: 8px 15px;
+}
+
+tr:nth-child(even){
+    background-color: rgb(204,200,200);
+}
+
+td:nth-child(even){
+    background-color: rgb(204,200,200);
+    opacity: .5;
+
+}
+.c12{
+    background-color: #74c0fc;
+    
+    z-index: -1;
+    
+}
+tbody{
+    background-color: white;
+}
+#btn{
+    position: absolute;
+    top: 90%;
+}
+.totalproducts{
+    display: flex;
+    gap: 2px;
+}
+button{
+    cursor: pointer;
+}
+.pagination-container{
+    position: absolute;
+    top: 90%;
+    right: 50%;
+}
+
+
