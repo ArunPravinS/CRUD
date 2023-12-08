@@ -34,13 +34,7 @@
     border-radius: 10px;
 
 }
-.container{
-    width: 1170px;
-    padding-left: 15px;
-    padding-right: 15px;
-    margin-left: auto;
-    margin-right: auto;
-}
+
 .inputText{
     padding: 5px;
 }
@@ -95,6 +89,16 @@ button{
     position: absolute;
     top: 90%;
     right: 50%;
+}
+
+@media only screen and (min-width:1200px){
+    .container{
+        width: 1170px;
+        padding-left: 15px;
+        padding-right: 15px;
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
 
 
