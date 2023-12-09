@@ -79,13 +79,24 @@ td {
     padding: 20px 15px;
 }
 
-tr:nth-child(even) {
+/* tr:nth-child(even) {
     background-color: rgb(204, 200, 200);
 }
 
 td:nth-child(even) {
     background-color: rgb(204, 200, 200);
     opacity: .5;
+
+} */
+tr:nth-child(even) {
+    background-color: #eaeaea;
+    color: black;
+}
+
+td:nth-child(even) {
+    background-color: #f7f7f7;
+    opacity: 1;
+    
 
 }
 
