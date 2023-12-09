@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Parse the stored data to an array or set it to an empty array if null
   formDataArray = storedData ? JSON.parse(storedData) : [];
+  document.getElementById("totalcount").innerHTML = formDataArray.length
 
   // Update the table with the loaded data
   updateTable();
@@ -89,10 +90,10 @@ function updateTable() {
     cell6.innerHTML = rowData.count * rowData.price;
 
     let cell7 = row.insertCell(6);
-    cell7.innerHTML = `<i onClick= "onEdit(this)" class="fas fa-edit"></i>`;
+    cell7.innerHTML = `<i onClick= "onEdit(this)" style="color:#50a7b0" class="fas fa-edit"></i>`;
 
     let cell8 = row.insertCell(7);
-    cell8.innerHTML = ` <i onClick ="deleteTask(this)" class="fas fa-trash-alt"></i>`;
+    cell8.innerHTML = ` <i onClick ="deleteTask(this)" style="color:#d31d59" class="fas fa-trash-alt"></i>`;
 
 
 
@@ -265,10 +266,10 @@ function updateTable1(rdr) {
     cell6.innerHTML = rowData.count * rowData.price;
 
     let cell7 = row.insertCell(6);
-    cell7.innerHTML = `<i onClick= "onEdit(this)" class="fas fa-edit"></i>`;
+    cell7.innerHTML = `<i onClick= "onEdit(this)" style="color:#50a7b0" class="fas fa-edit"></i>`;
 
     let cell8 = row.insertCell(7);
-    cell8.innerHTML = ` <i onClick ="deleteTask(this)" class="fas fa-trash-alt"></i>`;
+    cell8.innerHTML = ` <i onClick ="deleteTask(this)" style="color:#d31d59" class="fas fa-trash-alt"></i>`;
   }
 }
 
