@@ -12,10 +12,10 @@
         <div class="container">
             <div class="header1">
                 <div class="find">
-                    <input type="text" id="findProduct" class="inputText" name="findproductname"
+                    <input type="text" id="findProduct" oninput="filter2()" class="inputText" name="findproductname"
                         placeholder="Search by Product name"></input>
 
-                    <button onclick="filter2()"><i class='fas fa-search' ></i></button>
+                    <!-- <button onclick="filter2()"><i class='fas fa-search' ></i></button> -->
 
                 </div>
                 <div class="filter">
@@ -31,6 +31,12 @@
                 <div class="totalproducts">
                     <p>Total Products :</p>
                     <p class="totalcount" id="totalcount" name="totalcount"></p>
+                </div>
+                <div>
+                    <button id="showall" onclick="showall()">Show All</button>
+                </div>
+                <div>
+                    <button id="back" onclick="back()">Back</button>
                 </div>
 
             </div>

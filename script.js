@@ -109,23 +109,7 @@ function updateTable() {
 
   // Update the current page indicator
   document.getElementById("currentPage").innerText = currentPage;
-  // Function to navigate to the next page
-  function nextPage() {
-    const totalPages = Math.ceil(formDataArray.length / itemsPerPage);
-    if (currentPage < totalPages) {
-      currentPage++;
-      updateTable();
-    }
-  }
-
-  // Function to navigate to the previous page
-  function prevPage() {
-    if (currentPage > 1) {
-      currentPage--;
-      updateTable();
-    }
-
-  }
+ 
 
 }
 
@@ -181,6 +165,7 @@ function resetForm() {
 function deleteAllRows() {
   formDataArray.splice(0, formDataArray.length)
   updateTable()
+  block()
   document.getElementById("totalcount").innerHTML = formDataArray.length
 }
 
@@ -272,7 +257,50 @@ function updateTable1(rdr) {
     cell8.innerHTML = ` <i onClick ="deleteTask(this)" style="color:#d31d59" class="fas fa-trash-alt"></i>`;
   }
 }
+// show All
+function showall(){
+  let tableBody = document.getElementById("storeList").getElementsByTagName('tbody')[0];
 
+  tableBody.innerHTML = "";
+  for (let i = 0; i < formDataArray.length; i++) {
+    let rowData = formDataArray[i];
+
+    // Create a new row
+    let row = tableBody.insertRow(i);
+
+    // Insert cells with data
+    let cell1 = row.insertCell(0);
+    cell1.innerHTML = i + 1;
+
+    let cell2 = row.insertCell(1);
+    cell2.innerHTML = rowData.product;
+
+    let cell3 = row.insertCell(2);
+    cell3.innerHTML = rowData.category;
+
+    let cell4 = row.insertCell(3);
+    cell4.innerHTML = rowData.price;
+
+    let cell5 = row.insertCell(4);
+    cell5.innerHTML = rowData.count;
+
+    let cell6 = row.insertCell(5);
+    cell6.innerHTML = rowData.count * rowData.price;
+
+    let cell7 = row.insertCell(6);
+    cell7.innerHTML = `<i onClick= "onEdit(this)" style="color:#50a7b0" class="fas fa-edit"></i>`;
+
+    let cell8 = row.insertCell(7);
+    cell8.innerHTML = ` <i onClick ="deleteTask(this)" style="color:#d31d59" class="fas fa-trash-alt"></i>`;
+}
+document.getElementById("btn").style.display="none"
+document.querySelector(".pagination-container").style.display="none"
+}
+// back
+function back(){
+  updateTable()
+  block()
+}
 
 
 // ascsort
@@ -290,6 +318,7 @@ function ascSort() {
     return 0;
   });
   updateTable()
+  block()
 }
 
 //decsort()
@@ -307,16 +336,33 @@ function decSort() {
     return 0;
   });
   updateTable()
+  block()
 }
 
 // filter by product Name
 function filter2() {
   let category = document.getElementById("findProduct").value;
+  if(category==""){
+    updateTable()
+  }
+  else{
+    ascSort()
   const rdr = formDataArray.filter(function (xad) {
-    return xad.product.indexOf(category) > -1
+    return xad.product.indexOf(category) >-1
   });
-  updateTable1(rdr)
-}
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const paginatedData = rdr.slice(startIndex, endIndex);
+  
+
+  // Update the table with paginated data
+  updateTable1(paginatedData);
+  block()
+
+
+  }
+  }
+
 // Function to navigate to the next page
 function nextPage() {
   const totalPages = Math.ceil(formDataArray.length / itemsPerPage);
@@ -333,6 +379,9 @@ function prevPage() {
     updateTable();
   }
 }
+function block(){
+document.getElementById("btn").style.display="block"
+document.querySelector(".pagination-container").style.display="block"}
 
 
 

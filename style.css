@@ -36,7 +36,7 @@
     align-items: center;
     gap: 3px;
 }
-.deleteAl{
+.deleteAl,#showall,#back{
     padding: 5px;
     border-radius: 10px;
 
@@ -49,6 +49,9 @@ header{
     background-color: #2b2549;
 
 }
+i{
+    cursor: pointer;
+}
 .totalproducts p{
     color: white;
 }
@@ -60,7 +63,7 @@ table.list{
 td{
     border: 1px solid rgb(204,200,200);
     text-align: left;
-    padding: 8px 15px;
+    padding: 20px 15px;
 }
 
 tr:nth-child(even){
@@ -86,7 +89,7 @@ tbody{
 }
 #btn{
     position: absolute;
-    top: 90%;
+    bottom: 10%;
 }
 .totalproducts{
     display: flex;
@@ -97,7 +100,7 @@ button{
 }
 .pagination-container{
     position: absolute;
-    top: 90%;
+    bottom: 10%;
     right: 50%;
 }
 .hide1{
