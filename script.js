@@ -43,7 +43,7 @@ function onFormSubmit(e) {
     
     
     if (product.value=="") {
-      console.log("failure");
+    
       msg.innerHTML = "Product Name cannot be blank";
     }
     else if(!re.test(price.value)){
@@ -169,11 +169,16 @@ function updateRecord() {
   selectedTask.cells[5].innerHTML = formData.count * formData.price;
 }
 let deleteTask = (e) => {
+  if (confirm('Do you want to delete this record?')) {
+    
+
   e.parentElement.parentElement.remove();
   formDataArray.splice(e.parentElement.parentElement.id, 1);
   document.getElementById("totalcount").innerHTML = formDataArray.length
+  updateTable()
 
 
+  }
 };
 
 
