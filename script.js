@@ -27,6 +27,7 @@ const itemsPerPage = 5;
 
 function onFormSubmit(e) {
   event.preventDefault();
+
   readFormData();
   const form = document.querySelector('.c12');
   form.style.display = 'block';
@@ -109,7 +110,7 @@ function updateTable() {
 
   // Update the current page indicator
   document.getElementById("currentPage").innerText = currentPage;
- 
+
 
 }
 
@@ -120,7 +121,7 @@ function updateTable() {
 let onEdit = (e) => {
   const form = document.querySelector('.c12');
   form.style.display = 'none';
-  const forms =  document.getElementById('hide');
+  const forms = document.getElementById('hide');
   forms.style.display = 'block';
   let selectedTask = e.parentElement.parentElement;
 
@@ -258,7 +259,7 @@ function updateTable1(rdr) {
   }
 }
 // show All
-function showall(){
+function showall() {
   let tableBody = document.getElementById("storeList").getElementsByTagName('tbody')[0];
 
   tableBody.innerHTML = "";
@@ -292,12 +293,12 @@ function showall(){
 
     let cell8 = row.insertCell(7);
     cell8.innerHTML = ` <i onClick ="deleteTask(this)" style="color:#d31d59" class="fas fa-trash-alt"></i>`;
-}
-document.getElementById("btn").style.display="none"
-document.querySelector(".pagination-container").style.display="none"
+  }
+  document.getElementById("btn").style.display = "none"
+  document.querySelector(".pagination-container").style.display = "none"
 }
 // back
-function back(){
+function back() {
   updateTable()
   block()
 }
@@ -342,26 +343,26 @@ function decSort() {
 // filter by product Name
 function filter2() {
   let category = document.getElementById("findProduct").value;
-  if(category==""){
+  if (category == "") {
     updateTable()
   }
-  else{
+  else {
     ascSort()
-  const rdr = formDataArray.filter(function (xad) {
-    return xad.product.indexOf(category) >-1
-  });
-  const startIndex = (currentPage - 1) * itemsPerPage;
-  const endIndex = startIndex + itemsPerPage;
-  const paginatedData = rdr.slice(startIndex, endIndex);
-  
+    const rdr = formDataArray.filter(function (xad) {
+      return xad.product.indexOf(category) > -1
+    });
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+    const paginatedData = rdr.slice(startIndex, endIndex);
 
-  // Update the table with paginated data
-  updateTable1(paginatedData);
-  block()
+
+    // Update the table with paginated data
+    updateTable1(paginatedData);
+    block()
 
 
   }
-  }
+}
 
 // Function to navigate to the next page
 function nextPage() {
@@ -379,9 +380,10 @@ function prevPage() {
     updateTable();
   }
 }
-function block(){
-document.getElementById("btn").style.display="block"
-document.querySelector(".pagination-container").style.display="block"}
+function block() {
+  document.getElementById("btn").style.display = "block"
+  document.querySelector(".pagination-container").style.display = "block"
+}
 
 
 

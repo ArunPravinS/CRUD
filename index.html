@@ -21,8 +21,8 @@
                 <div class="filter">
                     <p style="color: white;">Sort By Product Name</p>
                     <div class="sort">
-                       <button onclick="ascSort()"> <i class='fas fa-angle-up'></i></button>
-                       <button onclick="decSort()"> <i class='fas fa-angle-down'></i></button>
+                        <button onclick="ascSort()"> <i class='fas fa-angle-up'></i></button>
+                        <button onclick="decSort()"> <i class='fas fa-angle-down'></i></button>
                     </div>
                 </div>
                 <div class="delete">
@@ -53,15 +53,19 @@
                     <tr>
                         <th>S.NO</th>
                         <th>Product Name</th>
-                        <th><div>
-                            <label for="category">category</label>
-                            <select onclick="fil()" style="background-color:#f34136;border: none;" id="category1" required>
-                                <option value="none">None</option>
-                                <option value="clothes">Clothes</option>
-                                <option value="electronics">Electronics</option>
-                                <option value="medical">Medical</option>
+                        <th>
+                            <div>
+                                <label for="category">category</label>
+                                <select onclick="fil()" style="background-color:#f34136;border: none;" id="category1"
+                                    required>
+                                    <option value="none">None</option>
+                                    <option value="clothes">Clothes</option>
+                                    <option value="electronics">Electronics</option>
+                                    <option value="medical">Medical</option>
 
-                            </select></div></th>
+                                </select>
+                            </div>
+                        </th>
                         <th>Price</th>
                         <th>Count</th>
                         <th>Total</th>
@@ -97,12 +101,14 @@
                             </div>
                             <div>
                                 <label for="price">Price</label>
-                                <input type="text" name="price" id="price" required pattern="[1-9][0-9]{0,4}" title="price should only be in positive numbers">
+                                <input type="text" name="price" id="price" required pattern="[1-9][0-9]{0,4}"
+                                    title="price should only be in positive numbers">
                             </div>
 
                             <div>
                                 <label for="count">Count</label>
-                                <input type="number" name="count" id="count" required pattern="[1-9][0-9]{0,4}" title="price should only be in positive numbers">
+                                <input type="number" name="count" id="count" required pattern="[1-9][0-9]{0,4}"
+                                    title="price should only be in positive numbers">
 
                             </div>
                             <div class="form_action--button">
@@ -114,14 +120,14 @@
                 </tr>
             </table>
 
-            
+
         </div>
         <!-- Add a container for pagination controls -->
-<div class="pagination-container">
-    <button onclick="prevPage()"><i class='fas fa-angle-left'></i></button>
-    <span id="currentPage">1</span>
-    <button onclick="nextPage()"><i class='fas fa-angle-right'></i></button>
-</div>
+        <div class="pagination-container">
+            <button onclick="prevPage()"><i class='fas fa-angle-left'></i></button>
+            <span id="currentPage">1</span>
+            <button onclick="nextPage()"><i class='fas fa-angle-right'></i></button>
+        </div>
 
         <button id="btn"><i style="color: white;font-size: 14px;" class="fas fa-plus"></i></button>
     </div>
