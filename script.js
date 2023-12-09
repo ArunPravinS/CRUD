@@ -59,6 +59,7 @@ function onFormSubmit(e) {
   forms.style.display = 'none';
   document.getElementById("totalcount").innerHTML = formDataArray.length
   msg.innerHTML = "";
+  msg1.innerHTML = "";
 
   updateTable();
 
