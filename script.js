@@ -150,6 +150,7 @@ let onEdit = (e) => {
   form.style.display = 'none';
   const forms = document.getElementById('hide');
   forms.style.display = 'block';
+  
   let selectedTask = e.parentElement.parentElement;
 
   document.getElementById("product").value = selectedTask.children[1].innerHTML;
@@ -231,6 +232,8 @@ function fil() {
     updateTable()
   }
   else {
+    document.getElementById("btn").style.display = "none"
+  document.querySelector(".pagination-container").style.display = "none"
     filter1()
 
 
@@ -383,14 +386,16 @@ function filter2() {
     const rdr = formDataArray.filter(function (xad) {
       return xad.product.indexOf(category) > -1
     });
-    const startIndex = (currentPage - 1) * itemsPerPage;
-    const endIndex = startIndex + itemsPerPage;
-    const paginatedData = rdr.slice(startIndex, endIndex);
+    document.getElementById("btn").style.display = "none"
+  document.querySelector(".pagination-container").style.display = "none"
+    // const startIndex = (currentPage - 1) * itemsPerPage;
+    // const endIndex = startIndex + itemsPerPage;
+    // const paginatedData = rdr.slice(startIndex, endIndex);
 
 
     // Update the table with paginated data
-    updateTable1(paginatedData);
-    block()
+    updateTable1(rdr);
+    // block()
 
 
   }
