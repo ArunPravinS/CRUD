@@ -19,6 +19,17 @@ function saveToLocalStorage() {
   localStorage.setItem("formDataArray", JSON.stringify(formDataArray));
 }
 
+let product = document.getElementById("product");
+console.log(product)
+
+
+  let category = document.getElementById("category");
+  let price = document.getElementById("price");
+  let count = document.getElementById("count");
+  let msg = document.getElementById("msg");
+  let msg1 = document.getElementById("msg1")
+  let re = /^[1-9][0-9]{0,4}$/
+
 let formDataArray = [];
 
 let currentPage = 1;
@@ -27,6 +38,19 @@ const itemsPerPage = 5;
 
 function onFormSubmit(e) {
   event.preventDefault();
+  formValidation();}
+  let formValidation = () => {
+    
+    
+    if (product.value=="") {
+      console.log("failure");
+      msg.innerHTML = "Product Name cannot be blank";
+    }
+    else if(!re.test(price.value)){
+      msg1.innerHTML = "Price should be between 1 and 99999";
+
+    }
+    else{
 
   readFormData();
   const form = document.querySelector('.c12');
@@ -34,6 +58,7 @@ function onFormSubmit(e) {
   const forms = document.getElementById('hide');
   forms.style.display = 'none';
   document.getElementById("totalcount").innerHTML = formDataArray.length
+  msg.innerHTML = "";
 
   updateTable();
 
@@ -41,9 +66,11 @@ function onFormSubmit(e) {
 
   resetForm();
   saveToLocalStorage();
+    }
 
 
 }
+
 function readFormData() {
   let product = document.getElementById("product").value;
   let category = document.getElementById("category").value;

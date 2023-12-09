@@ -101,7 +101,10 @@ thead {
 }
 
 tbody {
-    background-color: white;
+    background-color: aliceblue;
+}
+#msg{
+    color: red;
 }
 
 #btn {
@@ -132,13 +135,13 @@ button {
     padding: 5px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 4px;
 }
 
 #form1 div {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 4px;
 }
 
 #form1 div input {
@@ -152,9 +155,12 @@ button {
     min-height: 28px;
     max-width: 250px;
 }
+#msg1{
+    color: red;
+}
 
 .jj {
-    padding-top: 30px;
+    padding-top: 8px;
 }
 
 @media only screen and (min-width:1200px) {
