@@ -155,7 +155,7 @@ button {
     gap: 4px;
 }
 
-#form1 div input {
+#form1 div input,#form1 div button {
     border: 1px solid grey;
     min-height: 28px;
     max-width: 250px;
