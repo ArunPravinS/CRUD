@@ -376,7 +376,7 @@ function updateTable1(rdr) {
     cell7.innerHTML = `<i onClick= "editRow(${i})" style="color:#50a7b0" class="fas fa-edit"></i>`;
 
     let cell8 = row.insertCell(7);
-    cell8.innerHTML = ` <i onClick ="deleteFilter(${i})" style="color:#d31d59" class="fas fa-trash-alt"></i>`;
+    cell8.innerHTML = ` <i onClick ="deleteTask(${i})" style="color:#d31d59" class="fas fa-trash-alt"></i>`;
   }
 }
 // show All
