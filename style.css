@@ -44,10 +44,24 @@
 }
 
 .deleteAl,
-#showall,
-#back {
-    padding: 5px;
+#showall {
+    
+   
+    color: gold;
+    background: border-box;
+    border: 1px solid white;
+    padding: 12px;
+    border-radius: 25px;
+
+}
+#back{
     border-radius: 10px;
+    color: gold;
+    background: border-box;
+    border: 1px solid white;
+    padding: 12px;
+    border-radius: 20px;
+    min-width: 70px;
 
 }
 
