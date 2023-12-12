@@ -92,23 +92,40 @@ tr:nth-child(even) {
     background-color: #eaeaea;
     color: black;
 }
+tr:nth-child(odd) {
+    background-color: white;
+    color: black;
+}
+table{
+    display: table;
+    border-collapse: separate;
+    box-sizing: border-box;
+    text-indent: initial;
+    border-spacing: 0px;
+    border-color: gray;
+    transform: translateY(-44px);
+}
 
-td:nth-child(even) {
+/* td:nth-child(even) {
     background-color: #f7f7f7;
     opacity: 1;
     
 
-}
+} */
 
 .c12 {
     background-color: #74c0fc;
+    height: 77vh;
 
     z-index: -1;
 
 }
 
+
 thead {
-    background-color: #f34136;
+    background-color: #f34136!important;
+height: 44px;
+    
 }
 
 tbody {
