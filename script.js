@@ -42,6 +42,9 @@ const itemsPerPage = 5;
 function onFormSubmit(e) {
   event.preventDefault();
   formValidation();
+ 
+
+  
 }
 let formValidation = () => {
 
@@ -103,98 +106,7 @@ function readFormData() {
 
 
 }
-function updateTable() {
-  let tableBody = document.getElementById("storeList").getElementsByTagName('tbody')[0];
 
-  tableBody.innerHTML = "";
-  for (let i = 0; i < formDataArray.length; i++) {
-    let rowData = formDataArray[i];
-
-    // Create a new row
-    let row = tableBody.insertRow(i);
-
-    // Insert cells with data
-    let cell1 = row.insertCell(0);
-    cell1.innerHTML = i + 1;
-
-    let cell2 = row.insertCell(1);
-    cell2.innerHTML = rowData.product;
-
-    let cell3 = row.insertCell(2);
-    cell3.innerHTML = rowData.category;
-
-    let cell4 = row.insertCell(3);
-    cell4.innerHTML = rowData.price;
-
-    let cell5 = row.insertCell(4);
-    cell5.innerHTML = rowData.count;
-
-    let cell6 = row.insertCell(5);
-    cell6.innerHTML = rowData.count * rowData.price;
-
-    let cell7 = row.insertCell(6);
-    cell7.innerHTML = `<i onClick= "editRow(${i}) save1(${i})" style="color:#50a7b0" class="fas fa-edit"></i>`;
-
-    let cell8 = row.insertCell(7);
-    cell8.innerHTML = ` <i onClick ="deleteTask(${i})" style="color:#d31d59" class="fas fa-trash-alt"></i>`;
-
-
-
-
-  }
-  //Add the following lines to handle pagination
-  const startIndex = (currentPage - 1) * itemsPerPage;
-  const endIndex = startIndex + itemsPerPage;
-  const paginatedData = formDataArray.slice(startIndex, endIndex);
-
-  // Update the table with paginated data
-  updateTable2(paginatedData);
-
-  // Update the current page indicator
-  document.getElementById("currentPage").innerText = currentPage;
-
-
-}
-function updateTable2(paginatedData) {
-  let tableBody = document.getElementById("storeList").getElementsByTagName('tbody')[0];
-  tableBody.innerHTML = "";
-
-  // Calculate the starting index based on the current page
-  const startIndex = (currentPage - 1) * itemsPerPage;
-
-  for (let i = 0; i < paginatedData.length; i++) {
-    let rowData = paginatedData[i];
-
-
-    let row = tableBody.insertRow(i);
-
-
-    let cell1 = row.insertCell(0);
-    cell1.innerHTML = startIndex + i + 1;
-
-    let cell2 = row.insertCell(1);
-    cell2.innerHTML = rowData.product;
-
-    let cell3 = row.insertCell(2);
-    cell3.innerHTML = rowData.category;
-
-    let cell4 = row.insertCell(3);
-    cell4.innerHTML = rowData.price;
-
-    let cell5 = row.insertCell(4);
-    cell5.innerHTML = rowData.count;
-
-    let cell6 = row.insertCell(5);
-    cell6.innerHTML = rowData.count * rowData.price;
-
-    let cell7 = row.insertCell(6);
-    cell7.innerHTML = `<i onClick= "editRow(${startIndex + i})" style="color:#50a7b0" class="fas fa-edit"></i>`;
-
-    let cell8 = row.insertCell(7);
-    cell8.innerHTML = ` <i onClick =" deleteTask(${startIndex + i})" style="color:#d31d59" class="fas fa-trash-alt"></i>`;
-  }
-  
-}
 function editRow(index) {
   const form = document.querySelector('.c12');
   form.style.display = 'none';
@@ -319,95 +231,6 @@ function filter1() {
 
 
 }
-
-
-
-function updateTable1(rdr) {
-  let tableBody = document.getElementById("storeList").getElementsByTagName('tbody')[0];
-  tableBody.innerHTML = "";
-
-  // Calculate the starting index based on the current page
-  const startIndex = (currentPage - 1) * itemsPerPage;
-
-  for (let i = 0; i < rdr.length; i++) {
-    let rowData = rdr[i];
-
-
-    let row = tableBody.insertRow(i);
-
-
-    let cell1 = row.insertCell(0);
-    cell1.innerHTML = startIndex + i + 1;
-
-    let cell2 = row.insertCell(1);
-    cell2.innerHTML = rowData.product;
-
-    let cell3 = row.insertCell(2);
-    cell3.innerHTML = rowData.category;
-
-    let cell4 = row.insertCell(3);
-    cell4.innerHTML = rowData.price;
-
-    let cell5 = row.insertCell(4);
-    cell5.innerHTML = rowData.count;
-
-    let cell6 = row.insertCell(5);
-    cell6.innerHTML = rowData.count * rowData.price;
-
-    let cell7 = row.insertCell(6);
-    cell7.innerHTML = `<i onClick= "editFilter(${i})" style="color:#50a7b0" class="fas fa-edit"></i>`;
-
-    let cell8 = row.insertCell(7);
-    cell8.innerHTML = ` <i onClick =" deleteFilter(${i})" style="color:#d31d59" class="fas fa-trash-alt"></i>`;
-  }
-}
-// show All
-function showall() {
-  let tableBody = document.getElementById("storeList").getElementsByTagName('tbody')[0];
-
-
-  tableBody.innerHTML = "";
-  for (let i = 0; i < formDataArray.length; i++) {
-    let rowData = formDataArray[i];
-
-    // Create a new row
-    let row = tableBody.insertRow(i);
-
-    // Insert cells with data
-    let cell1 = row.insertCell(0);
-    cell1.innerHTML = i + 1;
-
-    let cell2 = row.insertCell(1);
-    cell2.innerHTML = rowData.product;
-
-    let cell3 = row.insertCell(2);
-    cell3.innerHTML = rowData.category;
-
-    let cell4 = row.insertCell(3);
-    cell4.innerHTML = rowData.price;
-
-    let cell5 = row.insertCell(4);
-    cell5.innerHTML = rowData.count;
-
-    let cell6 = row.insertCell(5);
-    cell6.innerHTML = rowData.count * rowData.price;
-
-    let cell7 = row.insertCell(6);
-    cell7.innerHTML = `<i onClick= "editRow(${i})" style="color:#50a7b0" class="fas fa-edit"></i>`;
-
-    let cell8 = row.insertCell(7);
-    cell8.innerHTML = ` <i onClick ="deleteTask(${i})" style="color:#d31d59" class="fas fa-trash-alt"></i>`;
-  }
-
-  document.querySelector(".pagination-container").style.display = "none"
-  document.getElementById("btn").style.display = "none"
-  // let element = document.getElementById("fixed");
-
-  // // Change the style properties
-  // // element.style.position = "fixed";
-  // // element.style.width = "100%";
-
-}
 // back
 function back() {
 
@@ -458,6 +281,8 @@ function filter2() {
   let category = document.getElementById("findProduct").value;
   if (category == "") {
     updateTable()
+    document.getElementById("btn").style.display = "block"
+    document.querySelector(".pagination-container").style.display = "block"
   }
   else {
     ascSort()
@@ -472,16 +297,19 @@ function filter2() {
 
 
     // Update the table with paginated data
-    updateTable1(rdr);
+    updateTable3(rdr);
     // block()
 
 
   }
 }
 
+
+
 // Function to navigate to the next page
 function nextPage() {
   const totalPages = Math.ceil(formDataArray.length / itemsPerPage);
+  
   if (currentPage < totalPages) {
     currentPage++;
     updateTable();
@@ -578,6 +406,312 @@ function editFilter(index) {
   form.style.display = 'none';
   const forms = document.getElementById('hide');
   forms.style.display = 'block';
+
+
+}
+
+
+
+// tables
+function updateTable() {
+  let tableBody = document.getElementById("storeList").getElementsByTagName('tbody')[0];
+
+  tableBody.innerHTML = "";
+  for (let i = 0; i < formDataArray.length; i++) {
+    let rowData = formDataArray[i];
+
+    // Create a new row
+    let row = tableBody.insertRow(i);
+
+    // Insert cells with data
+    let cell1 = row.insertCell(0);
+    cell1.innerHTML = i + 1;
+
+    let cell2 = row.insertCell(1);
+    cell2.innerHTML = rowData.product;
+
+    let cell3 = row.insertCell(2);
+    cell3.innerHTML = rowData.category;
+
+    let cell4 = row.insertCell(3);
+    cell4.innerHTML = rowData.price;
+
+    let cell5 = row.insertCell(4);
+    cell5.innerHTML = rowData.count;
+
+    let cell6 = row.insertCell(5);
+    cell6.innerHTML = rowData.count * rowData.price;
+
+    let cell7 = row.insertCell(6);
+    cell7.innerHTML = `<i onClick= "editRow(${i}) save1(${i})" style="color:#50a7b0" class="fas fa-edit"></i>`;
+
+    let cell8 = row.insertCell(7);
+    cell8.innerHTML = ` <i onClick ="deleteTask(${i})" style="color:#d31d59" class="fas fa-trash-alt"></i>`;
+
+
+
+
+  }
+  //Add the following lines to handle pagination
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const paginatedData = formDataArray.slice(startIndex, endIndex);
+
+  // Update the table with paginated data
+  updateTable2(paginatedData);
+
+  // Update the current page indicator
+  document.getElementById("currentPage").innerText = currentPage;
+
+
+}
+function updateTable2(paginatedData) {
+  let tableBody = document.getElementById("storeList").getElementsByTagName('tbody')[0];
+  tableBody.innerHTML = "";
+
+  // Calculate the starting index based on the current page
+  const startIndex = (currentPage - 1) * itemsPerPage;
+
+  for (let i = 0; i < paginatedData.length; i++) {
+    let rowData = paginatedData[i];
+
+
+    let row = tableBody.insertRow(i);
+
+
+    let cell1 = row.insertCell(0);
+    cell1.innerHTML = startIndex + i + 1;
+
+    let cell2 = row.insertCell(1);
+    cell2.innerHTML = rowData.product;
+
+    let cell3 = row.insertCell(2);
+    cell3.innerHTML = rowData.category;
+
+    let cell4 = row.insertCell(3);
+    cell4.innerHTML = rowData.price;
+
+    let cell5 = row.insertCell(4);
+    cell5.innerHTML = rowData.count;
+
+    let cell6 = row.insertCell(5);
+    cell6.innerHTML = rowData.count * rowData.price;
+
+    let cell7 = row.insertCell(6);
+    cell7.innerHTML = `<i onClick= "editRow(${startIndex + i})" style="color:#50a7b0" class="fas fa-edit"></i>`;
+
+    let cell8 = row.insertCell(7);
+    cell8.innerHTML = ` <i onClick =" deleteTask(${startIndex + i})" style="color:#d31d59" class="fas fa-trash-alt"></i>`;
+  }
+  
+}
+function updateTable1(rdr) {
+  let tableBody = document.getElementById("storeList").getElementsByTagName('tbody')[0];
+  tableBody.innerHTML = "";
+
+  // Calculate the starting index based on the current page
+  const startIndex = (currentPage - 1) * itemsPerPage;
+
+  for (let i = 0; i < rdr.length; i++) {
+    let rowData = rdr[i];
+
+
+    let row = tableBody.insertRow(i);
+
+
+    let cell1 = row.insertCell(0);
+    cell1.innerHTML = startIndex + i + 1;
+
+    let cell2 = row.insertCell(1);
+    cell2.innerHTML = rowData.product;
+
+    let cell3 = row.insertCell(2);
+    cell3.innerHTML = rowData.category;
+
+    let cell4 = row.insertCell(3);
+    cell4.innerHTML = rowData.price;
+
+    let cell5 = row.insertCell(4);
+    cell5.innerHTML = rowData.count;
+
+    let cell6 = row.insertCell(5);
+    cell6.innerHTML = rowData.count * rowData.price;
+
+    let cell7 = row.insertCell(6);
+    cell7.innerHTML = `<i onClick= "editFilter(${i})" style="color:#50a7b0" class="fas fa-edit"></i>`;
+
+    let cell8 = row.insertCell(7);
+    cell8.innerHTML = ` <i onClick =" deleteFilter(${i})" style="color:#d31d59" class="fas fa-trash-alt"></i>`;
+  }
+}
+// show All
+function showall() {
+  let tableBody = document.getElementById("storeList").getElementsByTagName('tbody')[0];
+
+
+  tableBody.innerHTML = "";
+  for (let i = 0; i < formDataArray.length; i++) {
+    let rowData = formDataArray[i];
+
+    // Create a new row
+    let row = tableBody.insertRow(i);
+
+    // Insert cells with data
+    let cell1 = row.insertCell(0);
+    cell1.innerHTML = i + 1;
+
+    let cell2 = row.insertCell(1);
+    cell2.innerHTML = rowData.product;
+
+    let cell3 = row.insertCell(2);
+    cell3.innerHTML = rowData.category;
+
+    let cell4 = row.insertCell(3);
+    cell4.innerHTML = rowData.price;
+
+    let cell5 = row.insertCell(4);
+    cell5.innerHTML = rowData.count;
+
+    let cell6 = row.insertCell(5);
+    cell6.innerHTML = rowData.count * rowData.price;
+
+    let cell7 = row.insertCell(6);
+    cell7.innerHTML = `<i onClick= "editRow(${i})" style="color:#50a7b0" class="fas fa-edit"></i>`;
+
+    let cell8 = row.insertCell(7);
+    cell8.innerHTML = ` <i onClick ="deleteTask(${i})" style="color:#d31d59" class="fas fa-trash-alt"></i>`;
+  }
+
+  document.querySelector(".pagination-container").style.display = "none"
+  document.getElementById("btn").style.display = "none"
+  // let element = document.getElementById("fixed");
+
+  // // Change the style properties
+  // // element.style.position = "fixed";
+  // // element.style.width = "100%";
+
+}
+function updateTable3(rdr) {
+  let tableBody = document.getElementById("storeList").getElementsByTagName('tbody')[0];
+  tableBody.innerHTML = "";
+
+  // Calculate the starting index based on the current page
+  const startIndex = (currentPage - 1) * itemsPerPage;
+
+  for (let i = 0; i < rdr.length; i++) {
+    let rowData = rdr[i];
+
+
+    let row = tableBody.insertRow(i);
+
+
+    let cell1 = row.insertCell(0);
+    cell1.innerHTML = startIndex + i + 1;
+
+    let cell2 = row.insertCell(1);
+    cell2.innerHTML = rowData.product;
+
+    let cell3 = row.insertCell(2);
+    cell3.innerHTML = rowData.category;
+
+    let cell4 = row.insertCell(3);
+    cell4.innerHTML = rowData.price;
+
+    let cell5 = row.insertCell(4);
+    cell5.innerHTML = rowData.count;
+
+    let cell6 = row.insertCell(5);
+    cell6.innerHTML = rowData.count * rowData.price;
+
+    let cell7 = row.insertCell(6);
+    cell7.innerHTML = `<i onClick= "searcheditFilter(${i})" style="color:#50a7b0" class="fas fa-edit"></i>`;
+
+    let cell8 = row.insertCell(7);
+    cell8.innerHTML = ` <i onClick =" searchdeleteFilter(${i})" style="color:#d31d59" class="fas fa-trash-alt"></i>`;
+  }
+}
+
+function searchdeleteFilter(index){
+
+  let category = document.getElementById("findProduct").value;
+  const rdr = formDataArray.filter(function (xad) {
+    return xad.product.indexOf(category) > -1
+  });
+  
+
+  if (confirm('Do you want to delete this record?')) {
+    for (j = 0; formDataArray.length - 1; j++) {
+      // console.log(rdr[index].product)
+      // rdr[index].product
+      formDataArray[j].product
+      if ((rdr[index].product == formDataArray[j].product) && (rdr[index].category == formDataArray[j].category) && (rdr[index].price == formDataArray[j].price) && (rdr[index].count == formDataArray[j].count)) {
+        formDataArray.splice(j, 1)
+        document.getElementById("totalcount").innerHTML = formDataArray.length
+
+
+
+        break;
+      }
+
+
+
+    }
+
+  }
+  
+  document.getElementById("findProduct").value=""
+  updateTable()
+
+
+
+}
+
+function searcheditFilter(index) {
+
+  let category = document.getElementById("findProduct").value;
+
+  const rdr = formDataArray.filter(function (xad) {
+    return xad.product.indexOf(category) > -1
+  });
+
+  if (confirm('Do you want to Edit this record?')) {
+    for (j = 0; formDataArray.length - 1; j++) {
+      // console.log(rdr[index].product)
+      // rdr[index].product
+      console.log(formDataArray[j].product)
+      if ((rdr[index].product == formDataArray[j].product) && (rdr[index].category == formDataArray[j].category) && (rdr[index].price == formDataArray[j].price) && (rdr[index].count == formDataArray[j].count)) {
+
+        const formData = formDataArray[j];
+        // Populate the form with existing data for editing
+        document.getElementById("product").value = formData.product;
+        document.getElementById("category").value = formData.category;
+        document.getElementById("price").value = formData.price;
+        document.getElementById("count").value = formData.count;
+        // Remove the item from the array
+        // formDataArray.splice(j, 1);
+        // console.log(index)
+        ch = j
+        numer = "parentElement"
+        formDataArray.splice(j, 1)
+        document.getElementById("totalcount").innerHTML = formDataArray.length
+        // document.getElementById("findProduct").value=""
+       
+
+
+
+        break;
+      }
+
+
+
+    }
+
+  }
+  const form = document.querySelector('.c12');
+  form.style.display = 'none';
+  const forms = document.getElementById('hide');
+  forms.style.display = 'block';
+  document.getElementById("findProduct").value=""
 
 
 }
