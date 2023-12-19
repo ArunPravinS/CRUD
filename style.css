@@ -1,8 +1,24 @@
 * {
     padding: 0;
     margin: 0;
+    /* font-family: poppins !important */
 }
+p,h1,h2,h3,h4,h5,div{
+    font-family: poppins !important
 
+}
+.find input::placeholder{
+    color: white;
+    opacity: .5;
+}
+.find input{
+    background: border-box;
+    color: white;
+    
+}
+input:focus{
+    outline: none;
+}
 .header1 {
     display: flex;
     align-items: center;
