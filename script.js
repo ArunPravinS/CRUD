@@ -108,10 +108,16 @@ function readFormData() {
 }
 
 function editRow(index) {
+  
+  if(confirm("Do you want to edit this record")){
   const form = document.querySelector('.c12');
   form.style.display = 'none';
   const forms = document.getElementById('hide');
   forms.style.display = 'block';
+  const Close= document.getElementById("clos")
+  Close.style.display='none'
+  document.getElementById("btn").style.display = "none"
+  document.querySelector(".pagination-container").style.display = "none"
   const formData = formDataArray[index];
   // Populate the form with existing data for editing
   document.getElementById("product").value = formData.product;
@@ -123,6 +129,8 @@ function editRow(index) {
   console.log(index)
   ch = index
   numer = "parentElement"
+}
+
 }
 
 
@@ -360,6 +368,8 @@ function prevPage() {
 function block() {
   document.getElementById("btn").style.display = "block"
   document.querySelector(".pagination-container").style.display = "block"
+  const Close= document.getElementById("clos")
+  Close.style.display='block'
 }
 
 
@@ -440,6 +450,8 @@ function editFilter(index) {
   form.style.display = 'none';
   const forms = document.getElementById('hide');
   forms.style.display = 'block';
+  const Close= document.getElementById("clos")
+  Close.style.display='none'
 
 
 }
@@ -745,6 +757,8 @@ function searcheditFilter(index) {
   form.style.display = 'none';
   const forms = document.getElementById('hide');
   forms.style.display = 'block';
+  const Close= document.getElementById("clos")
+  Close.style.display='none'
   document.getElementById("findProduct").value=""
 
 
