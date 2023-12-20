@@ -174,6 +174,7 @@ function resetForm() {
 
 
 function deleteAllRows() {
+  if(confirm("Do you want to delete all rows"))
   formDataArray.splice(0, formDataArray.length)
   updateTable()
   block()
@@ -183,6 +184,8 @@ function deleteAllRows() {
 
 // form visibility
 const btn = document.getElementById('btn');
+var mySpan = document.getElementById("mySpan");
+
 
 btn.addEventListener('click', () => {
   const form = document.getElementById('hide');
@@ -191,16 +194,47 @@ btn.addEventListener('click', () => {
   // forms.style.display = 'none';
 
   if (form.style.display === 'none') {
-    // 👇️ this SHOWS the form
+    //  this SHOWS the form
     form.style.display = 'block';
     forms.style.display = 'none';
+    document.querySelector(".pagination-container").style.display = "none"
+    btn.style.transform="rotate(45deg)"
+    mySpan.textContent = "Close";
 
   } else {
-    // 👇️ this HIDES the form
+    // this HIDES the form
     form.style.display = 'none';
     forms.style.display = 'block';
+    btn.style.transform="rotate(0deg)"
+    mySpan.textContent = "Add new";
+    resetForm()
   }
 });
+const clo =document.getElementById('clos');
+clo.addEventListener('click', () => {
+  const form = document.getElementById('hide');
+  // form.style.display = 'block'
+  const forms = document.querySelector('.c12');
+  // forms.style.display = 'none';
+
+  // if (form.style.display === 'none') {
+  //   //  this SHOWS the form
+  //   form.style.display = 'block';
+  //   forms.style.display = 'none';
+
+  // } else {
+    //  this HIDES the form
+    form.style.display = 'none';
+    forms.style.display = 'block';
+    document.querySelector(".pagination-container").style.display = "block"
+    btn.style.transform="rotate(0deg)"
+    mySpan.textContent = "Add new";
+    resetForm()
+  }
+);
+
+
+
 
 
 function fil() {

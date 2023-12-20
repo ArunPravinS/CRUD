@@ -22,8 +22,14 @@
                 <div class="filter">
                     <p style="color: white;">Sort By Product Name</p>
                     <div class="sort">
-                        <button onclick="ascSort()"> <i class='fas fa-angle-up'></i></button>
-                        <button onclick="decSort()"> <i class='fas fa-angle-down'></i></button>
+                        <div class="tooltip">
+                            <button class=round onclick="ascSort()"> <i class='fas fa-angle-up'></i></button>
+                            <span class="tooltiptext">Ascending Sort</span>
+                        </div>
+                        <div class="tooltip">
+                            <button class="round" onclick="decSort()"> <i class='fas fa-angle-down'></i></button>
+                            <span class="tooltiptext">Descending Sort</span>
+                        </div>
                     </div>
                 </div>
                 <div class="delete">
@@ -85,10 +91,14 @@
             <table class="hide1">
                 <tr>
                     <td>
+                        
+                            <i class='fas fa-times-circle' id="clos"  style='font-size:24px;float:right;'></i>
+                          
                         <form id="form1" autocomplete="off" onsubmit="onFormSubmit()">
+
                             <div>
                                 <label for="product">Product Name</label>
-                                <input type="text" name="product" id="product" >
+                                <input type="text" name="product" id="product">
                                 <span id="msg"></span>
                             </div>
                             <div>
@@ -115,7 +125,7 @@
                             </div>
                             <div class="form_action--button">
                                 <input type="submit" value="Submit" id="hide1">
-                               <!-- <button value="Save" id="save" onclick="save1()">Save</button>  -->
+                                <!-- <button value="Save" id="save" onclick="save1()">Save</button>  -->
                             </div>
                         </form>
                     </td>
@@ -126,12 +136,23 @@
         </div>
         <!-- Add a container for pagination controls -->
         <div class="pagination-container">
-            <button onclick="prevPage()"><i class='fas fa-angle-left' id="leftarrow"></i></button>
+            <div class="tooltip">
+                <button class="round1" onclick="prevPage()"><i class='fas fa-angle-left' id="leftarrow"></i></button>
+                <span class="tooltiptext">previous page</span>
+            </div>
             <span id="currentPage">1</span>
-            <button onclick="nextPage()"><i class='fas fa-angle-right' id="rightarrow"></i></button>
+            <div class="tooltip">
+                <button class="round1" onclick="nextPage()"><i class='fas fa-angle-right' id="rightarrow"></i></button>
+                <span class="tooltiptext">next page</span>
+            </div>
         </div>
+        <div class="btn1">
+            <div class="tooltip">
 
-        <button id="btn"><i style="color: white;font-size: 14px;" class="fas fa-plus"></i></button>
+                <button id="btn"><i style="color: white;font-size: 14px;" class="fas fa-plus"></i></button>
+                <span id="mySpan" class="tooltiptext" >Add new</span>
+            </div>
+        </div>
     </div>
 
 
